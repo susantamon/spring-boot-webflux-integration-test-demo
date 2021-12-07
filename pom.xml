@@ -11,7 +11,7 @@
 	<groupId>com.example.demo</groupId>
   	<artifactId>spring-boot-webflux-integration-test-demo</artifactId>
   	<version>1.0.0-SNAPSHOT</version>
-	<description>My Online Order Services</description>
+	<description>My Order Services</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
