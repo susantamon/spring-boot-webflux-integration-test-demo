@@ -1,0 +1,59 @@
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include: ["configprops", "env", "metrics", "prometheus", "health", "info", "threaddump", "mappings"]
+  info:
+    git:
+      mode: full
+
+spring:
+  webflux:
+    base-path: /api
+  application:
+    name: order-service
+  jackson:
+    default-property-inclusion: non_default
+  cloud:
+    discovery:
+      enabled: false
+  r2dbc:
+    url: r2dbc:pool:postgresql://localhost:5432/dev
+    username: root
+    password: root
+    pool:
+      initial-size: 1
+      max-size: 5
+      max-idle-time: 30m
+      validation-query: SELECT 1
+
+info:
+  version: @project.version@
+  title: My Order Service
+  description: Set of order services
+
+server:
+  port: 8080
+
+---
+
+spring:
+  profiles: test
+  r2dbc:
+    url: r2dbc:tc:postgresql:///testdb?TC_IMAGE_TAG=14-alpine
+
+---
