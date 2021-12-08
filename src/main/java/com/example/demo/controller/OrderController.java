@@ -24,7 +24,7 @@ public class OrderController {
         return orderService.saveOrder(order);
     }
 
-    @GetMapping(value = "/{orderId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{orderId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<Order> getOrder(@PathVariable Integer orderId) {
         return orderService.getOrder(orderId);
     }
